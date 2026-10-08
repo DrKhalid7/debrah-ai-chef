@@ -10,6 +10,7 @@ from google.genai import types
 # 1. إعداد قاعدة البيانات (SQLite)
 # ==========================================
 DB_NAME = "debrah.db"
+st.info("👈 اضغط على السهم (>>) أعلى اليسار لتحديد لغتك وحالتك الصحية قبل ابتكار الوصفة")
 
 def init_db():
     conn = sqlite3.connect(DB_NAME)
@@ -55,7 +56,7 @@ init_db()
 # ==========================================
 # 2. إعدادات الواجهة والذاكرة المؤقتة
 # ==========================================
-st.set_page_config(page_title="دبْرة - شيفك الذكي", page_icon="🍳", layout="wide")
+st.set_page_config(page_title="دبْرة - شيفك الذكي", page_icon="🍳", layout="wide", initial_sidebar_state="expanded")
 
 if 'current_response' not in st.session_state:
     st.session_state.current_response = None
