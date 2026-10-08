@@ -161,15 +161,28 @@ def render_recipe_ui(recipe):
 # ==========================================
 # 3. واجهة المستخدم الجانبية
 # ==========================================
+# ==========================================
+# 3. واجهة المستخدم الجانبية
+# ==========================================
 with st.sidebar:
     st.header("🌐 إعدادات اللغة / Language")
     output_lang = st.selectbox("لغة الوصفة / Recipe Language:", ["العربية", "English"])
     
     st.markdown("---")
     st.header("⚙️ الفلاتر الصحية / Filters")
-    diet = st.selectbox("النظام الغذائي / Diet:", ["بدون نظام محدد", "كيتو", "قليل الكربوهيدرات", "نباتي", "عالي البروتين"])
+    diet = st.selectbox("النظام الغذائي / Diet:", 
+                       ["بدون نظام محدد / No specific diet", 
+                        "كيتو / Keto", 
+                        "قليل الكربوهيدرات / Low Carb", 
+                        "نباتي / Vegetarian", 
+                        "عالي البروتين / High Protein"])
+                        
     health = st.multiselect("المشاكل الصحية / Health Conditions:", 
-                           ["السكري", "ارتفاع ضغط الدم", "الكوليسترول", "حساسية الجلوتين", "حساسية اللاكتوز"])
+                           ["السكري / Diabetes", 
+                            "ارتفاع ضغط الدم / Hypertension", 
+                            "الكوليسترول / High Cholesterol", 
+                            "حساسية الجلوتين / Gluten Intolerance", 
+                            "حساسية اللاكتوز / Lactose Intolerance"])
     
     st.markdown("---")
     st.header("📚 وصفاتي / My Recipes")
@@ -182,7 +195,7 @@ with st.sidebar:
                 st.session_state.current_response = None
                 st.rerun()
     else:
-        st.info("لا توجد وصفات محفوظة بعد.")
+        st.info("لا توجد وصفات محفوظة بعد. / No saved recipes yet.")
 
 # ==========================================
 # 4. الواجهة الرئيسية
